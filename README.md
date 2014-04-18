@@ -1,5 +1,7 @@
 # koa-ssl
 
+[![Build Status](https://travis-ci.org/jclem/koa-ssl.svg)](https://travis-ci.org/jclem/koa-ssl)
+
 koa-ssl enforces SSL for [koa][koa] apps. By default, it will not trust proxies
 (i.e. by the `x-forwarded-for` header), and it will only be enabled when
 `process.env.NODE_ENV === 'production'` is true.

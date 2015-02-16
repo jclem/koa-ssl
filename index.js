@@ -1,31 +1,31 @@
 'use strict';
 
-module.exports = function(useProxy, enable) {
-  if (typeof enable === 'undefined') {
-    enable = process.env.NODE_ENV === 'production';
-  }
+module.exports = function ssl(options) {
+  options = options || {};
 
-  return middleware;
+  let enabled = options.hasOwnProperty('disabled') ?
+    !options.disabled : process.env.NODE_ENV === 'production';
 
-  function* middleware(next) {
-    if (!enable) return yield next;
+  return sslMiddleware;
 
-    var isSecure = this.secure;
+  /* jshint validthis: true */
+  function* sslMiddleware(next) {
+    if (!enabled) return yield next;
 
-    if (!isSecure && useProxy) {
+    let isSecure = this.secure;
+
+    if (!isSecure && options.trustProxy) {
       isSecure = this.get('x-forwarded-proto') === 'https';
     }
 
     if (isSecure) {
       yield next;
+    } else if (typeof options.disallow === 'function') {
+      options.disallow(this);
     } else {
-      if (this.method === 'GET') {
-        this.status = 301;
-        this.redirect('https://' + this.get('host') + this.originalUrl);
-      } else {
-        this.status = 403;
-        this.body   = 'Please use HTTPS when communicating with this server.';
-      }
+      this.status = 403;
+      this.type   = 'text/plain';
+      this.body   = 'Please use HTTPS when communicating with this server.';
     }
   }
 };

@@ -1,31 +1,34 @@
 {
   "name": "koa-ssl",
-  "version": "1.0.1",
   "description": "Enforce SSL for koa apps",
-  "main": "index.js",
-  "scripts": {
-    "test": "mocha --harmony"
+  "version": "1.0.1",
+  "author": "Jonathan Clem",
+  "bugs": {
+    "url": "https://github.com/jclem/koa-ssl/issues"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/jclem/koa-ssl"
+  "devDependencies": {
+    "co": "^3.0.5",
+    "koa": "^0.5.5",
+    "mocha": "^2.1.0",
+    "request": "^2.34.0",
+    "should": "^3.3.1",
+    "thunkify": "^2.1.1"
   },
+  "engines": {
+    "iojs": "1.2.0"
+  },
+  "homepage": "https://github.com/jclem/koa-ssl",
   "keywords": [
     "ssl",
     "koa"
   ],
-  "author": "Jonathan Clem",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/jclem/koa-ssl/issues"
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jclem/koa-ssl"
   },
-  "homepage": "https://github.com/jclem/koa-ssl",
-  "devDependencies": {
-    "mocha": "^1.18.2",
-    "co": "^3.0.5",
-    "koa": "^0.5.5",
-    "thunkify": "^2.1.1",
-    "request": "^2.34.0",
-    "should": "^3.3.1"
+  "scripts": {
+    "test": "mocha"
   }
 }

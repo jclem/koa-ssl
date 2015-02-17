@@ -1,6 +1,6 @@
 # koa-ssl
 
-[![Build Status](https://travis-ci.org/jclem/koa-ssl.svg)](https://travis-ci.org/jclem/koa-ssl)
+[![Circle CI](https://circleci.com/gh/jclem/koa-ssl.svg?style=svg)](https://circleci.com/gh/jclem/koa-ssl)
 
 koa-ssl enforces SSL for [Koa][koa] apps.
 

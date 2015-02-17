@@ -14,7 +14,7 @@ var app = require('koa')();
 app.use(ssl());
 ```
 
-The function requires an optional object of options:
+The function takes an optional object of options:
 
 - `disabled`: (default `false`) If `true`, this middleware will allow all
 requests through.
